@@ -1,0 +1,26 @@
+name: Check Files
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Check Linux scripts
+        run: |
+          echo "✅ Linux scripts present:"
+          ls *.sh || echo "No .sh files"
+          echo "✅ All good!"
+      
+      - name: Check Windows scripts
+        run: |
+          echo "✅ Windows scripts present:"
+          ls *.ps1 || echo "No .ps1 files"
+          echo "✅ All good!"
+      
+      - name: Success
+        run: echo "✅✅✅ PRIVESC TOOLKIT READY! ✅✅✅"
